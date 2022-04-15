@@ -24,11 +24,11 @@ public class MarkdownParse {
                     continue;
                 }
             }
-            if (closeParen == 0) {
-                throw new IOException("Empty File!");
-            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
+        }
+        if (markdown.length() == 0) {
+            throw new IOException("Empty File!");
         }
         //System.out.println("THIS IS CURRENT INDEX: " + currentIndex);
         return toReturn;
