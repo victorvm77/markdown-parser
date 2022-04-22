@@ -30,6 +30,9 @@ public class MarkdownParse {
             if (openParen == -1) {
                 throw new IllegalArgumentException("Invalid Input!");
             }
+            if (closeBracket < openBracket) {
+                throw new IllegalArgumentException("Invalid Input!");
+            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
         }
