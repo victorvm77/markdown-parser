@@ -1,10 +1,11 @@
-import static org.junit.Assert.*;
-import org.junit.*;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 public class MarkdownParseTest {
     
@@ -75,12 +76,13 @@ public class MarkdownParseTest {
         assertEquals(expected, links);
     }
     @Test
-    public void  MarkdownParse7() throws IOException{
+    public void  MarkdownParse7() throws IOException {
         Path fileName = Path.of("snippet3.md");
         String content = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(content);
         ArrayList<String> expected = new ArrayList<String>();
         expected.add("https://sites.google.com/eng.ucsd.edu/cse-15l-spring-2022/schedule");
         assertEquals(expected, links);
+    }
 
 }
